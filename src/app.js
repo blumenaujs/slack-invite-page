@@ -15,7 +15,7 @@ injectGlobal`
   p,
   li,
   select{
-    /* font-family: 'Roboto', sans-serif; */
+    font-family: 'Montserrat', sans-serif;
   }
   html,
   body,
