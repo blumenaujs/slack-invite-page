@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { Focus } from 'react-powerplug'
 
-import { blueGreen } from '../../utils/colors'
+import { green } from '../../utils/colors'
 
 const StyledInput = styled.input`
     border:0;
@@ -36,10 +36,10 @@ const StyledInput = styled.input`
     }
 
       &.-focused{
-      -webkit-box-shadow: 0 1px 0 0 ${blueGreen};
-      box-shadow: 0 1px 0 0 ${blueGreen};
-      border-bottom: 1px solid ${blueGreen};
-      border-color:${blueGreen};
+      -webkit-box-shadow: 0 1px 0 0 ${green};
+      box-shadow: 0 1px 0 0 ${green};
+      border-bottom: 1px solid ${green};
+      border-color:${green};
     }
 `
 const Input = ({ ...rest }) => (

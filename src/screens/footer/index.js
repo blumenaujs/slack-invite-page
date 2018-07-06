@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { blueGreen } from '../../utils/colors'
+import { green } from '../../utils/colors'
 
 const StyledFooter = styled.footer`
    position:fixed;
@@ -10,7 +10,7 @@ const StyledFooter = styled.footer`
     color:white;
     >.heart{
       font-size: 18px;
-      color:${blueGreen};
+      color:${green};
     }
   }
 `

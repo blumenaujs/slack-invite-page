@@ -1,8 +1,12 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import styled from 'styled-components'
+import axios from 'axios'
+import { toast } from 'react-toastify'
+
 import Title from './title'
 import InviteForm from './invite-form'
 import Footer from './footer'
+import { API_URL } from '../utils/constants'
 
 const StyledInvite = styled.div`
   width:100%;
@@ -20,20 +24,34 @@ const StyledInvite = styled.div`
     align-items:center;
     justify-content:center;
   }
+  
+  >.header{
+    border:solid 1px red;
+  }
 `
 
-class Invite extends Component {
+class Invite extends PureComponent {
+  constructor (props) {
+    super(props)
+
+    this.sendInvite = this.sendInvite.bind(this)
+  }
+
+  sendInvite (email) {
+    axios.get(`${API_URL}/email=${email}`)
+      .then(() =>
+        toast.success('Seu convite foi enviado! Por favor verifique seu e-mail'))
+  }
+
   render () {
     return (
       <StyledInvite>
-
         <div className='content'>
           <Title />
-          <InviteForm />
+          <InviteForm onRequestInvite={this.sendInvite} />
         </div>
 
         <Footer />
-
       </StyledInvite>
 
     )
