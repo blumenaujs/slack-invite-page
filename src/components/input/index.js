@@ -17,7 +17,25 @@ const StyledInput = styled.input`
     color:white;
     outline:none;
     transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
-    &.-focused{
+
+    ::-webkit-input-placeholder {
+      color: #ccc;
+      text-transform:uppercase;
+    }
+    ::-moz-placeholder {
+      color: #ccc;
+      text-transform:uppercase;
+    }
+    :-ms-input-placeholder {
+      color: #ccc;
+      text-transform:uppercase;
+    }
+    :-moz-placeholder {
+      color: #ccc;
+      text-transform:uppercase;
+    }
+
+      &.-focused{
       -webkit-box-shadow: 0 1px 0 0 ${blueGreen};
       box-shadow: 0 1px 0 0 ${blueGreen};
       border-bottom: 1px solid ${blueGreen};
@@ -27,7 +45,7 @@ const StyledInput = styled.input`
 const Input = ({ ...rest }) => (
   <Focus>
     {({ focused, bind }) => (
-      <StyledInput {...rest} {...bind} className={focused ? '-focused' : ''} type="text" />
+      <StyledInput {...rest} {...bind} className={focused ? '-focused' : ''} />
     )}
   </Focus>
 )

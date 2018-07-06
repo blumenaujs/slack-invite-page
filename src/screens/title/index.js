@@ -1,15 +1,39 @@
 import React from 'react'
 import styled from 'styled-components'
+import { desktop, tablet } from '../../utils/breakpoints'
 
 const StyledContainer = styled.header`
   color: white;
   text-align:center;
-  padding: 2rem 0;
-  >h1{
-    margin: 1rem 0;
+
+  >h1, >p{
+    padding: 1rem 0;
   }
+
+  >h1{
+    font-size:30px;
+  }
+
   >p {
-    font-size:18px;
+    font-size:16px;
+  }
+
+  @media (min-width: ${tablet}){
+    >h1{
+      font-size:36px;
+    }
+    >p {
+      font-size:16px;
+    }
+  }
+
+  @media (min-width: ${desktop}){
+    >h1{
+      font-size:40px;
+    }
+    >p {
+      font-size:18px;
+    }
   }
 `
 

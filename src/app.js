@@ -1,6 +1,12 @@
 import React, { Component } from 'react'
-import {injectGlobal} from 'styled-components'
+import styled, { injectGlobal } from 'styled-components'
 import Invite from './screens/invite'
+
+const StyledContainer = styled.div`
+  background: -webkit-linear-gradient(to top, #4e4376, #2b5876); 
+  background: linear-gradient(to top, #4e4376, #2b5876);
+  height:100%;
+`
 
 injectGlobal`
   *, *::before, *::after {
@@ -27,7 +33,9 @@ injectGlobal`
 class App extends Component {
   render () {
     return (
-      <Invite />
+      <StyledContainer>
+        <Invite />
+      </StyledContainer>
     )
   }
 }
