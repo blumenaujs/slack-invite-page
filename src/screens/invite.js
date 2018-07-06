@@ -6,7 +6,7 @@ import { toast } from 'react-toastify'
 import Title from './title'
 import InviteForm from './invite-form'
 import Footer from './footer'
-import { API_URL } from '../utils/constants'
+import { API_URL, INVITES_SUFIX } from '../utils/constants'
 
 const StyledInvite = styled.div`
   width:100%;
@@ -38,7 +38,8 @@ class Invite extends PureComponent {
   }
 
   sendInvite (email) {
-    axios.get(`${API_URL}/email=${email}`)
+    console.log('sending invite =>', email)
+    axios.get(`${API_URL}${INVITES_SUFIX}?email=${email}`)
       .then(() =>
         toast.success('Seu convite foi enviado! Por favor verifique seu e-mail'))
   }
