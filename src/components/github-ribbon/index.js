@@ -15,5 +15,3 @@ const GitHubRibbon = () => (
 )
 
 export default GitHubRibbon
-
-

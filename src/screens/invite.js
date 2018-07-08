@@ -38,10 +38,10 @@ class Invite extends PureComponent {
   }
 
   sendInvite (email) {
-    console.log('sending invite =>', email)
     axios.get(`${API_URL}${INVITES_SUFIX}?email=${email}`)
-      .then(() =>
-        toast.success('Seu convite foi enviado! Por favor verifique seu e-mail'))
+      .then(({ data }) =>
+        toast.success(data.message))
+      .catch(({ response }) => toast.error(response.data.errorMessage))
   }
 
   render () {

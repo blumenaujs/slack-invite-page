@@ -4,7 +4,7 @@ import { ToastContainer } from 'react-toastify'
 
 import Invite from './screens/invite'
 import { green, red } from './utils/colors'
-import { GitHubRibbon } from './components';
+import { GitHubRibbon } from './components'
 
 const StyledContainer = styled.div`
   background: -webkit-linear-gradient(to top, blue, purple); 
@@ -74,7 +74,7 @@ class App extends Component {
       <StyledContainer>
         <GitHubRibbon />
         <Invite />
-        <ToastContainer className='custom-toast' autoClose={false} />
+        <ToastContainer className='custom-toast' />
       </StyledContainer>
     )
   }
