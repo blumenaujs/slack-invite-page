@@ -3,12 +3,12 @@ import styled, { injectGlobal } from 'styled-components'
 import { ToastContainer } from 'react-toastify'
 
 import Invite from './screens/invite'
-import { green, red } from './utils/colors'
+import { green, red, blue, purple } from './utils/colors'
 import { GitHubRibbon } from './components'
 
 const StyledContainer = styled.div`
-  background: -webkit-linear-gradient(to top, blue, purple); 
-  background: linear-gradient(to top, blue, purple);
+  background: -webkit-linear-gradient(to top, ${blue}, ${purple}); 
+  background: linear-gradient(to top, ${blue}, ${purple});
   height:100%;
 `
 
