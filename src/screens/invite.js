@@ -1,12 +1,12 @@
-import React, { PureComponent } from "react";
-import styled from "styled-components";
-import axios from "axios";
-import { toast } from "react-toastify";
+import React, { PureComponent } from 'react'
+import styled from 'styled-components'
+import axios from 'axios'
+import { toast } from 'react-toastify'
 
-import Title from "./title";
-import InviteForm from "./invite-form";
-import Footer from "./footer";
-import { API_URL, INVITES_SUFIX } from "../utils/constants";
+import Title from './title'
+import InviteForm from './invite-form'
+import Footer from './footer'
+import { API_URL, INVITES_SUFIX, STATUS_SUFIX } from '../utils/constants'
 
 const StyledInvite = styled.div`
   width: 100%;
@@ -28,23 +28,34 @@ const StyledInvite = styled.div`
   > .header {
     border: solid 1px red;
   }
-`;
+`
 
 class Invite extends PureComponent {
-  constructor(props) {
-    super(props);
+  constructor (props) {
+    super(props)
 
-    this.sendInvite = this.sendInvite.bind(this);
+    this.sendInvite = this.sendInvite.bind(this)
   }
 
-  sendInvite(email) {
+  componentDidMount () {
+    this.checkApiStatus()
+  }
+
+  checkApiStatus () {
+    axios
+      .get(`${API_URL}${STATUS_SUFIX}`)
+      .then(data => console.log('✓ API Status [Success]: ', data))
+      .catch(({ response }) => console.log('☹ API Status [Error]: ', response))
+  }
+
+  sendInvite (email) {
     axios
       .get(`${API_URL}${INVITES_SUFIX}?email=${email}`)
       .then(({ data }) => toast.success(data.message))
-      .catch(({ response }) => toast.error(response.data.errorMessage));
+      .catch(({ response }) => toast.error(response.data.errorMessage))
   }
 
-  render() {
+  render () {
     return (
       <StyledInvite>
         <div className="content">
@@ -54,8 +65,8 @@ class Invite extends PureComponent {
 
         <Footer />
       </StyledInvite>
-    );
+    )
   }
 }
 
-export default Invite;
+export default Invite
